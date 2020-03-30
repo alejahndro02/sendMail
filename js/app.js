@@ -43,6 +43,10 @@ function sendMail(e){
     setTimeout(()=>{
         loadGif.style.display ='none';
         document.getElementById('loaders').appendChild(sendGif);
+        setTimeout(()=>{
+            sendGif.remove();
+            formSend.reset();
+        },5000)
     }, 3000)
 }
 function validateLength(campo){
