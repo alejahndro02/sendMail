@@ -19,7 +19,10 @@ function initApp (){
 }
 function validate(){
     validateLength(this);
-    let errors =document.getElementsByClassName('error');
+    let errors = document.getElementsByClassName('error');
+    if (this.type ==='email'){
+        validateEmail(this);
+    }
     if(email.value !== '' && asunto.value !== '' && mensaje.value!==''){
         if (errors.length === 0 ){
             btnSend.disabled=false;
@@ -32,6 +35,16 @@ function validateLength(campo){
     console.log(campo.value.length);
     
     if (campo.value.length > 0){
+        campo.style.borderBottomColor="green";
+        campo.classList.remove('error');
+    }else{
+        campo.style.borderBottomColor="red";
+        campo.classList.add('error');
+    }
+}
+function validateEmail(campo){
+    const msj = campo.value;
+    if (msj.indexOf('@') !== -1 ){
         campo.style.borderBottomColor="green";
         campo.classList.remove('error');
     }else{
