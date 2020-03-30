@@ -4,6 +4,7 @@ const issue =document.getElementById('asunto');
 const message = document.getElementById('mensaje');
 const btnSend =document.getElementById('enviar');
 const formSend = document.getElementById('enviar-mail');
+const resetBtn = document.getElementById('resetBtn');
 
 //Listeners
 loadEventListeners();
@@ -33,8 +34,12 @@ function validate(){
         btnSend.disabled=true;
     }
 }
+function resetForm(e){
+    e.preventDefault();
+    formSend.reset();
+}
 function sendMail(e){
-    e.preventDefault()
+    e.preventDefault();
     const loadGif = document.getElementById('spinner');
     const sendGif = document.createElement('img');
     sendGif.src ='img/mail.gif';
